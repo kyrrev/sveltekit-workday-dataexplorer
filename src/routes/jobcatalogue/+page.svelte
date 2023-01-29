@@ -29,11 +29,11 @@
 <div class="job-profiles-container">
 	{#each uniqueJobFamilyGroups as jobFamilyGroup}
 		<div class="job-family-group-card">
-			<h1>{jobFamilyGroup}</h1>
+			<h1 class="text-xl">{jobFamilyGroup}</h1>
 			{#each uniqueJobFamilies as jobFamily, i}
 				{#if jobFamilyGroups[jobFamily] === jobFamilyGroup}
 					<div class="job-family-card">
-						<h2>{jobFamily}</h2>
+						<h2 class="text-lg">{jobFamily}</h2>
 						<div class="job-profile-cards-container">
 							{#each data.jobProfiles as jobProfile, i (jobProfile.cf_CFESIJobFamily + jobProfile.cf_CFESIJobFamilyGroup)}
 								{#if jobProfile.cf_CFESIJobFamily === jobFamily && jobProfile.cf_CFESIJobFamilyGroup === jobFamilyGroup}
@@ -72,7 +72,7 @@
 	}
 	.job-profile-cards-container {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(auto-fill, 1fr);
 		grid-column-gap: 10px;
 		grid-row-gap: 10px;

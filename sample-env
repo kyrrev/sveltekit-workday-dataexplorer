@@ -13,5 +13,5 @@ CLIENT_SECRET=******
 # Refresh Token
 REFRESH_TOKEN=******
 
-# WQL Query goes here
+# WQL Query goes here. The one below uses various custom calc-fields and won't work for you unless you build them. 
 QUERY_PARAM="SELECT cf_CFESIJobFamilyGroup, cf_CFESIJobFamily, jobProfile, managementLevel, jobCategory, workerCountWithJobProfile FROM allActiveJobProfiles (dataSourceFilter = defaultFilter) ORDER BY cf_CFESIJobFamilyGroup ASC, cf_CFESIJobFamily ASC, workerCountWithJobProfile DESC"
