@@ -9,7 +9,17 @@ TODO: Write instructions here
 
 ## Connecting to your Workday tenant
 
-TODO: Write instructions here
+Run tenant setup-security
+OAuth 2.0 Clients Enabled (Y)
+
+Create Integration System User
+*Give it a user name that makes sense
+*Do not allow UI sessions
+
+Register API Client for Integrations
+
+View API Clients
+Manage refresh token
 
 ## Customizing
 

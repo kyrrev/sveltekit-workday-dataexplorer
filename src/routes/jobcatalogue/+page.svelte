@@ -16,31 +16,6 @@
 	data.jobProfiles.forEach((jobProfile) => {
 		jobFamilyGroups[jobProfile.cf_CFESIJobFamily] = jobProfile.cf_CFESIJobFamilyGroup;
 	});
-
-	// Create objects to store the total worker count for each job family and job family group
-	const jobFamilyTotals: { [key: string]: number } = {};
-	const jobFamilyGroupTotals: { [key: string]: number } = {};
-
-	// Iterate over the job profiles to get the total worker count for each job family and job family group
-	data.jobProfiles.forEach((jobProfile) => {
-		const jobFamily = jobProfile.cf_CFESIJobFamily;
-		const jobFamilyGroup = jobProfile.cf_CFESIJobFamilyGroup;
-		const workerCount = jobProfile.workerCountWithJobProfile;
-
-		// Update the total worker count for this job family
-		if (jobFamilyTotals[jobFamily]) {
-			jobFamilyTotals[jobFamily] += workerCount;
-		} else {
-			jobFamilyTotals[jobFamily] = workerCount;
-		}
-
-		// Update the total worker count for this job family group
-		if (jobFamilyGroupTotals[jobFamilyGroup]) {
-			jobFamilyGroupTotals[jobFamilyGroup] += workerCount;
-		} else {
-			jobFamilyGroupTotals[jobFamilyGroup] = workerCount;
-		}
-	});
 </script>
 
 <h1 class="text-4xl my-8">Job Profiles overview</h1>
@@ -49,6 +24,21 @@
 	The cards include the Job Profile name, the number of workers with that Job Profile and the
 	management level.
 </h2>
+
+<div class="stats stats-vertical lg:stats-horizontal shadow my-3">
+	<div class="stat bg-primary">
+		<div class="stat-title">Job Family Groups</div>
+		<div class="stat-value">{uniqueJobFamilyGroups.length}</div>
+	</div>
+	<div class="stat bg-secondary">
+		<div class="stat-title">Job Families</div>
+		<div class="stat-value">{uniqueJobFamilies.length}</div>
+	</div>
+	<div class="stat bg-neutral">
+		<div class="stat-title">Job Profiles</div>
+		<div class="stat-value">{data.jobProfiles.length}</div>
+	</div>
+</div>
 
 <div class="job-profiles-container">
 	{#each uniqueJobFamilyGroups as jobFamilyGroup}
@@ -65,12 +55,22 @@
 										class="job-profile-card-container card card-compact bg-neutral text-neutral-content hover:bg-neutral-focus"
 									>
 										<div class="job-profile-card card-body">
-											<h3 class="card-title text-lg">{jobProfile.jobProfile}</h3>
+											<h3 class="card-title text-base">{jobProfile.jobProfile}</h3>
 											<div class="card-actions justify-end">
 												<div class="badge badge-outline">{jobProfile.managementLevel}</div>
-												<div class="badge badge-secondary">
-													{jobProfile.workerCountWithJobProfile}
-												</div>
+												{#if jobProfile.workerCountWithJobProfile === 0}
+													<div class="badge badge-error">
+														{jobProfile.workerCountWithJobProfile}
+													</div>
+												{:else if jobProfile.workerCountWithJobProfile < 5}
+													<div class="badge badge-warning">
+														{jobProfile.workerCountWithJobProfile}
+													</div>
+												{:else}
+													<div class="badge badge-success">
+														{jobProfile.workerCountWithJobProfile}
+													</div>
+												{/if}
 											</div>
 										</div>
 									</div>
