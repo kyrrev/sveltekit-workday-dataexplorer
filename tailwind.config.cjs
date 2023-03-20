@@ -9,7 +9,7 @@ module.exports = {
 	// daisyUI config (optional)
 	daisyui: {
 		styled: true,
-		themes: ['corporate', 'synthwave'],
+		themes: ['pastel', 'synthwave'],
 		base: true,
 		utils: true,
 		logs: true,
