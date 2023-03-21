@@ -49,8 +49,6 @@
 			{/each}
 		</select>
 	</div>
-
-	selected value {selectedJobFamilyGroup}
 </div>
 <div class="job-profiles-container">
 	{#each uniqueJobFamilyGroups as jobFamilyGroup}
