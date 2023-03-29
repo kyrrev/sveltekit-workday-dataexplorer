@@ -9,6 +9,14 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  BASE_URL: Placeholder
+  TOKEN_ENDPOINT: Placeholder
+  CLIENT_ID: Placeholder
+  CLIENT_SECRET: Placeholder
+  REFRESH_TOKEN: Placeholder
+  QUERY_PARAM: Placeholder
+
 jobs:
   build:
     runs-on: ubuntu-latest
