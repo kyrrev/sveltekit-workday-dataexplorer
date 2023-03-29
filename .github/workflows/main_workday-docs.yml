@@ -10,12 +10,12 @@ on:
   workflow_dispatch:
 
 env:
-  BASE_URL: Placeholder
-  TOKEN_ENDPOINT: Placeholder
-  CLIENT_ID: Placeholder
-  CLIENT_SECRET: Placeholder
-  REFRESH_TOKEN: Placeholder
-  QUERY_PARAM: Placeholder
+  BASE_URL: ${{ secrets.BASE_URL }}
+  TOKEN_ENDPOINT: ${{ secrets.TOKEN_ENDPOINT }}
+  CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+  QUERY_PARAM: ${{ secrets.QUERY_PARAM }}
 
 jobs:
   build:
