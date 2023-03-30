@@ -9,15 +9,14 @@ import {
 } from '$env/static/private';
 
 // Log out environment variables for troubleshooting
-function logEnvVariables() {
-	console.log("BASE_URL:", BASE_URL);
-	console.log("TOKEN_ENDPOINT:", TOKEN_ENDPOINT);
-	console.log("CLIENT_ID:", CLIENT_ID);
-	console.log("CLIENT_SECRET:", CLIENT_SECRET);
-	console.log("REFRESH_TOKEN:", REFRESH_TOKEN);
-	console.log("QUERY_PARAM:", QUERY_PARAM);
-  }
-logEnvVariables();
+
+console.log("BASE_URL:", BASE_URL);
+console.log("TOKEN_ENDPOINT:", TOKEN_ENDPOINT);
+console.log("CLIENT_ID:", CLIENT_ID);
+console.log("CLIENT_SECRET:", CLIENT_SECRET);
+console.log("REFRESH_TOKEN:", REFRESH_TOKEN);
+console.log("QUERY_PARAM:", QUERY_PARAM);
+
 // Defining the interface for the data
 
 interface JobProfile {
