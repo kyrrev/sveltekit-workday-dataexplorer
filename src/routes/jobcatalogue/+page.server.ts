@@ -17,7 +17,7 @@ function logEnvVariables() {
 	console.log("REFRESH_TOKEN:", REFRESH_TOKEN);
 	console.log("QUERY_PARAM:", QUERY_PARAM);
   }
-
+logEnvVariables();
 // Defining the interface for the data
 
 interface JobProfile {
