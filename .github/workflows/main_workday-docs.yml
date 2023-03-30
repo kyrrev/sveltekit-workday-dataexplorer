@@ -9,16 +9,17 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  BASE_URL: ${{ secrets.BASE_URL }}
-  TOKEN_ENDPOINT: ${{ secrets.TOKEN_ENDPOINT }}
-  CLIENT_ID: ${{ secrets.CLIENT_ID }}
-  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-  REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-  QUERY_PARAM: ${{ secrets.QUERY_PARAM }}
-
 jobs:
   build:
+
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      TOKEN_ENDPOINT: ${{ secrets.TOKEN_ENDPOINT }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+      QUERY_PARAM: ${{ secrets.QUERY_PARAM }}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +34,7 @@ jobs:
         run: |
           npm install
           npm run check --if-present
-          npm run build --if-present
+          npm run build --if-present  
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
