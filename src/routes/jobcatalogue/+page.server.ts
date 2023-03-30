@@ -1,17 +1,18 @@
 // Importing environment variables from .env file
-import {
-	BASE_URL,
-	TOKEN_ENDPOINT,
-	CLIENT_ID,
-	CLIENT_SECRET,
-	REFRESH_TOKEN,
-	QUERY_PARAM
-} from '$env/static/private';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const BASE_URL = process.env.BASE_URL;
+const TOKEN_ENDPOINT = process.env.TOKEN_ENDPOINT ?? 'default_token_endpoint';
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+const QUERY_PARAM = process.env.QUERY_PARAM;
 
 // Log out environment variables for troubleshooting
 
-console.log("BASE_URL:", process.env.BASE_URL);
-console.log("TOKEN_ENDPOINT:", process.env.TOKEN_ENDPOINT);
+console.log("BASE_URL:", BASE_URL);
+console.log("TOKEN_ENDPOINT:", TOKEN_ENDPOINT);
 console.log("CLIENT_ID:", CLIENT_ID);
 console.log("CLIENT_SECRET:", CLIENT_SECRET);
 console.log("REFRESH_TOKEN:", REFRESH_TOKEN);
