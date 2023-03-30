@@ -65,6 +65,8 @@ export async function load(): Promise<{ jobProfiles: JobProfile[] }> {
 		total = data.total;
 		offset += limit;
 	}
+	console.log('jobProfilesRaw:', jobProfilesRaw);
+	
 	// Mapping the data to a flat structure and removing the IDs
 	const jobProfiles: JobProfile[] = jobProfilesRaw.map((item) => {
 		return {
