@@ -61,8 +61,10 @@ export async function load(): Promise<{ jobProfiles: JobProfile[] }> {
 				}
 			);
 			if (!response.ok) {
+				console.log('response:', response);
+				console.log('response text:', await response.text());
 				throw new Error(`Failed to fetch API data (HTTP status ${response.status})`);
-			}
+			  }		
 			const data = await response.json();
 	
 			jobProfilesRaw = jobProfilesRaw.concat(data.data);
