@@ -54,7 +54,7 @@
 	{#each uniqueJobFamilyGroups as jobFamilyGroup}
 		{#if selectedJobFamilyGroup === 'All' || selectedJobFamilyGroup === jobFamilyGroup}
 			<div class="job-family-group-card">
-				<h1 class="text-2xl ">{jobFamilyGroup}</h1>
+				<h1 class="text-2xl">{jobFamilyGroup}</h1>
 				{#each uniqueJobFamilies as jobFamily, i}
 					{#if jobFamilyGroups[jobFamily] === jobFamilyGroup}
 						<div class="job-family-card bg-secondary">

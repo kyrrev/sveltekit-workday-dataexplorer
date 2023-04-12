@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     env:
       BASE_URL: ${{ secrets.BASE_URL }}
       TOKEN_ENDPOINT: ${{ secrets.TOKEN_ENDPOINT }}
@@ -34,7 +33,7 @@ jobs:
         run: |
           npm install
           npm run check --if-present
-          npm run build --if-present  
+          npm run build --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2

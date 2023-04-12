@@ -55,14 +55,14 @@ export async function load(): Promise<{ jobProfiles: JobProfile[] }> {
 				console.log('response:', response);
 				console.log('response text:', await response.text());
 				throw new Error(`Failed to fetch API data (HTTP status ${response.status})`);
-			  }		
+			}
 			const data = await response.json();
-	
+
 			jobProfilesRaw = jobProfilesRaw.concat(data.data);
 			total = data.total;
 			offset += limit;
 		}
-		
+
 		// Mapping the data to a flat structure and removing the IDs
 		const jobProfiles: JobProfile[] = jobProfilesRaw.map((item) => {
 			return {
@@ -73,7 +73,7 @@ export async function load(): Promise<{ jobProfiles: JobProfile[] }> {
 				jobProfile: item.jobProfile?.descriptor || '',
 				jobProfileID: item.jobProfile?.id || '',
 				managementLevel: item.managementLevel?.descriptor || '',
-				workerCountWithJobProfile: item.workerCountWithJobProfile || 0 
+				workerCountWithJobProfile: item.workerCountWithJobProfile || 0
 			};
 		});
 		return { jobProfiles };
