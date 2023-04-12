@@ -9,15 +9,6 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 const QUERY_PARAM = process.env.QUERY_PARAM;
 
-// Log out environment variables for troubleshooting
-
-console.log("BASE_URL:", BASE_URL);
-console.log("TOKEN_ENDPOINT:", TOKEN_ENDPOINT);
-console.log("CLIENT_ID:", CLIENT_ID);
-console.log("CLIENT_SECRET:", CLIENT_SECRET);
-console.log("REFRESH_TOKEN:", REFRESH_TOKEN);
-console.log("QUERY_PARAM:", QUERY_PARAM);
-
 // Defining the interface for the data
 
 interface JobProfile {
@@ -71,7 +62,6 @@ export async function load(): Promise<{ jobProfiles: JobProfile[] }> {
 			total = data.total;
 			offset += limit;
 		}
-		console.log('jobProfilesRaw:', jobProfilesRaw);
 		
 		// Mapping the data to a flat structure and removing the IDs
 		const jobProfiles: JobProfile[] = jobProfilesRaw.map((item) => {
@@ -83,7 +73,7 @@ export async function load(): Promise<{ jobProfiles: JobProfile[] }> {
 				jobProfile: item.jobProfile?.descriptor || '',
 				jobProfileID: item.jobProfile?.id || '',
 				managementLevel: item.managementLevel?.descriptor || '',
-				workerCountWithJobProfile: item.workerCountWithJobProfile
+				workerCountWithJobProfile: item.workerCountWithJobProfile || 0 
 			};
 		});
 		return { jobProfiles };
