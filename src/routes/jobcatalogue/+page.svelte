@@ -20,6 +20,11 @@
 	let selectedJobFamilyGroup: string = 'All';
 </script>
 
+<svelte:head>
+	<title>Job Catalogue</title>
+	<meta name="description" content="Job Catalogue overview" />
+</svelte:head>
+
 <h1 class="text-4xl my-8">Job Profiles overview</h1>
 <h2>This page fetches updated Job Profiles from Workday on each page refresh.</h2>
 <h2>

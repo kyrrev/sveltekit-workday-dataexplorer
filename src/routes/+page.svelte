@@ -1,3 +1,8 @@
+<svelte:head>
+	<title>Workday Docs Home</title>
+	<meta name="description" content="Workday Docs Home page. This is the root." />
+</svelte:head>
+
 <h1 class="text-4xl text-center my-8">Hello!</h1>
 
 <div class="text-center">
